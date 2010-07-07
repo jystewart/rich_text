@@ -1,0 +1,22 @@
+RichText
+========
+
+Rails engine to get you up and running with the tinymce rich text editor 
+and some utilities to pull in video and images.
+
+This is a quick hack to get a couple of our projects up and running. We wouldn't
+necessarily recommend it to anyone else.
+
+We depend on jquery and use tiny_mce and thickbox to make this all work.
+
+Install the engine and then:
+
+  script/generate rich_text
+
+Then in your views you need to add:
+
+<%= rich_text_tags(css_selector) %>
+
+-----
+
+Copyright (c) 2009-10 James Stewart/Ket Lai Ltd.. License still uncertain.

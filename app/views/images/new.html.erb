@@ -1,0 +1,25 @@
+<h3>Upload an image</h3>
+
+<% form_for([:admin, @image], :url => images_path(:format => 'js'), :html => { :multipart => true, :target => 'upload_frame'}) do |f| %>
+  <p><%= f.file_field :upload %></p>
+  
+  <p>
+    <%= f.label :caption, 'Title/caption' %>
+    <%= f.text_field :caption %>
+  </p>
+  <p>
+    <%= f.label :attribution %>
+    <%= f.text_field :attribution %>
+  </p>
+
+  <p>If you provide a link below, clicking on the image will take the user to that site. Otherwise clicking on the image will display the image full size.</p>
+  
+  <p>
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+  </p>
+  
+  <p><%= f.submit 'Upload' %></p>
+<% end %>
+
+<iframe id="upload_frame" name="upload_frame" class="upload_frame" src="about:blank", style="visibility: hidden; height: 1px"></iframe>
