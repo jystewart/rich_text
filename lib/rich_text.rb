@@ -13,3 +13,5 @@
 # end
 # 
 require 'rich_text/engine'
+require 'app/helpers/rich_text_helper'
+ActionView::Base.send :include, RichTextHelper

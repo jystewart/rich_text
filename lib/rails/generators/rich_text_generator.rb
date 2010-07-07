@@ -24,7 +24,7 @@ class RichTextGenerator < ActiveRecord::Generators::Base
   # end
   
   def setup_migration
-    migration_template "migrations/#{migration_name}.rb", "rich_text_#{migration_name}"
+    migration_template "migrations/#{migration_name}.rb", "db/migrate/rich_text_#{migration_name}"
   end
 
   private

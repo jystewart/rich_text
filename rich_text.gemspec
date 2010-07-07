@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.6"
  
   s.add_development_dependency "rails"
+  s.add_development_dependency "paperclip"
  
   s.files        = Dir.glob("lib/**/*") + Dir.glob("app/**/*") + ["README"]
   s.require_path = 'lib'

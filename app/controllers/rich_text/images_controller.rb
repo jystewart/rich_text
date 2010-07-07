@@ -7,7 +7,7 @@ class RichText::ImagesController < ApplicationController
   end
   
   def create
-    @image = current_user.editor_images.build(params[:image])
+    @image = current_user.editor_images.build(params[:editor_image])
 
     respond_to do |format|
       if @image.save
@@ -23,6 +23,7 @@ class RichText::ImagesController < ApplicationController
         }   
       else
         format.html { render :template => "images/new" }
+        format.js { render :json => @image.errors }
       end
     end
   end
