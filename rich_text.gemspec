@@ -11,6 +11,6 @@ Gem::Specification.new do |s|
  
   s.add_development_dependency "rails"
  
-  s.files        = Dir.glob("lib/**/*") + Dir.glob("app/**/*") + "README"
+  s.files        = Dir.glob("lib/**/*") + Dir.glob("app/**/*") + ["README"]
   s.require_path = 'lib'
 end
