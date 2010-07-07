@@ -1,6 +1,6 @@
-class RichTextCreateImages < ActiveRecord::Migration
+class RichTextCreateEditorImages < ActiveRecord::Migration
   def self.up
-    create_table :images, :force => true do |t|
+    create_table :editor_images, :force => true do |t|
       t.string :caption, :attribution, :link
       t.string :upload_file_name, :upload_content_type
       t.integer :upload_file_size, :user_id
@@ -10,6 +10,6 @@ class RichTextCreateImages < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :images
+    drop_table :editor_images
   end
 end

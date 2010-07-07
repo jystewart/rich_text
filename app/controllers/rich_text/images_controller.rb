@@ -2,12 +2,12 @@ class RichText::ImagesController < ApplicationController
   layout false
   
   def new
-    @image = Image.new
+    @image = EditorImage.new
     render :template => '/images/new'
   end
   
   def create
-    @image = current_user.images.build(params[:image])
+    @image = current_user.editor_images.build(params[:image])
 
     respond_to do |format|
       if @image.save
