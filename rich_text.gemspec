@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "rich_text"
-  s.version     = '0.0.0'
+  s.version     = '0.2.0'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["James Stewart"]
   s.email       = ["james@ketlai.co.uk"]
