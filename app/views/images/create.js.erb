@@ -4,7 +4,7 @@
   var loc = document.location;
   with(window.parent) { 
     setTimeout(function() { 
-      window.eval("SHEBA.Images.display_options('<%= @image.upload.url(:medium) %>', '<%= @image.upload.url(:small) %>', '<%= @image.upload.url(:thumb) %>', '<%= @image.caption %>', '<%= @image.attribution %>', '<%= @image.link %>')"); 
+      window.eval("SHEBA.Images.display_options({medium: '<%= @image.upload.url(:medium) %>', small: '<%= @image.upload.url(:small) %>', tiny: '<%= @image.upload.url(:thumb) %>', original: '<%= @image.upload.url(:original) %>'}, '<%= @image.caption %>', '<%= @image.attribution %>', '<%= @image.link %>')"); 
       loc.replace('about:blank'); 
     }, 1) 
   } 

@@ -43,9 +43,14 @@ var SHEBA = {
   },
   
   Images: {
-    display_options: function(medium, small, tiny, caption, attribution, link) {
+    display_options: function(options, caption, attribution, link) {
       $('#TB_ajaxContent #new_image, #TB_ajaxContent h2').hide();
-      $('#upload_frame').before('<h2>Image uploaded. Insert</h2><p><a href="' + medium + '">medium</a></p><p><a href="' + small + '">small</a></p><p><a href="' + tiny + '">tiny</a></p>');
+      options_string = '';
+      for (label in options) {
+        options_string += '<p><a href="' + options[label] + '">' + label + '</a></p>'
+      }
+      $('#upload_frame').before('<h2>Image uploaded. Insert</h2>' + options_string);
+
       $('#TB_ajaxContent p a').click(function () {
         SHEBA.Images.insert($(this).attr('href'), caption, attribution, link);
         tb_remove();
