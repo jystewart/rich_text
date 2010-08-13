@@ -34,8 +34,10 @@ var SHEBA = {
       convert_urls : false
     },
     
-    init: function (selector) {
-      $(selector).tinymce(SHEBA.RichText.options);
+    init: function (selector, options) {
+      tinymce_options = $.extend(SHEBA.RichText.options, options);
+      
+      $(selector).tinymce(tinymce_options);
       $(selector).after('<p class="box important"><a href="#" class="add-video">Add a video</a> | <a class="thickbox add-image" href="/images/new?height=420&width=420">Add an image</a></p>');
       tb_init('a.thickbox');
       $('.add-video').click(SHEBA.Video.receive);
