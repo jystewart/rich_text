@@ -1,0 +1,40 @@
+<html>
+<head>
+  <script language="javascript" type="text/javascript" src="/javascripts/tiny_mce/tiny_mce_popup.js"></script>
+  <%= javascript_include_tag 'jquery-1.5.min.js' %>
+  <script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('p a').click(function () {
+      var element = $(this);
+      var container = element.closest('p');
+      var link = container.data('link') || this.href;
+      var attribution = container.data('attribution');
+      var caption = container.data('caption');
+      var src = this.href;
+
+      var new_html = '<div class="uploaded-image"><a href="' + link + '"><img src="' + src + '"></a>';
+      if (caption && caption != '') {
+        new_html += '<p class="caption">' + caption + '</p>';
+      }
+      if (attribution && attribution != '') {
+        new_html += '<p class="attribution">' + attribution + '</p>';
+      }
+      new_html += '</div>';
+      
+      tinyMCEPopup.execCommand("mceInsertContent", false, new_html);
+      tinyMCEPopup.close();
+      return false;
+    })
+  });
+  </script>
+  <title>Success</title>
+</head>
+<body>
+  <h2>Image uploaded. Pick a version to insert</h2>
+  <% %W(tiny small medium original).each do |kind| %>
+  <p data-caption="<%= @image.caption %>" data-attribution="<%= @image.attribution %>" data-link="<%= @image.link %>">
+    <%= link_to kind, @image.upload.url(kind.to_sym) %>
+  </p>
+  <% end %>
+</body>
+</html>

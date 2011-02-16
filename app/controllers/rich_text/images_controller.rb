@@ -6,15 +6,17 @@ class RichText::ImagesController < ApplicationController
     render :template => '/images/new'
   end
   
+  def show
+    @image = current_user.editor_images.find(params[:id])
+    render :template => 'images/show'
+  end
+
   def create
     @image = current_user.editor_images.build(params[:editor_image])
 
     respond_to do |format|
       if @image.save
-        format.html { 
-          flash[:notice] = 'Image was successfully stored'
-          redirect_to :back
-        }
+        format.html { redirect_to editor_image_path(@image), :notice => 'Image was successfully stored' }
         format.js {
           # Support iframe remoting trick. Could use http://code.google.com/p/responds-to-parent/ 
           # but it seemed overkill

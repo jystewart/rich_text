@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :editor_images, :controller => 'rich_text/images', :only => [:new, :create]
+  resources :editor_images, :controller => 'rich_text/images', :only => [:show, :new, :create]
 end
